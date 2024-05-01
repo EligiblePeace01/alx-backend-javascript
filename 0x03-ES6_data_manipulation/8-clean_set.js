@@ -1,10 +1,11 @@
-export default function cleanSet(set, startString) {
-  const setRet = [];
-  if (startString === '' || typeof startString !== 'string') return '';
-  set.forEach((s) => {
-    if (typeof s === 'string' && s.startsWith(startString)) {
-      setRet.push(s.slice(startString.length));
-    }
-  });
-  return setRet.join('-');
-}
+const cleanSet = (set, startString) => {
+  if (startString === undefined || startString.length === 0) {
+    return '';
+  }
+  return [...set]
+    .filter((parametro) => (parametro !== undefined ? parametro.startsWith(startString) : ''))
+    .map((parametro) => (parametro !== undefined ? parametro.slice(startString.length) : ''))
+    .join('-');
+};
+
+export default cleanSet;

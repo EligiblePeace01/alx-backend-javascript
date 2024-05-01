@@ -1,9 +1,16 @@
-export default function groceriesList() {
-  const myMap = new Map();
-  myMap.set('Apples', 10);
-  myMap.set('Tomatoes', 10);
-  myMap.set('Pasta', 1);
-  myMap.set('Rice', 1);
-  myMap.set('Banana', 5);
-  return myMap;
-}
+const groceriesList = () => {
+  const res = new Map();
+  const objetos = {
+    Apples: 10,
+    Tomatoes: 10,
+    Pasta: 1,
+    Rice: 1,
+    Banana: 5,
+  };
+  for (const key of Object.keys(objetos)) {
+    res.set(key, objetos[key]);
+  }
+  return res;
+};
+
+export default groceriesList;
